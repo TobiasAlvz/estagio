@@ -23,9 +23,10 @@ public class controller {
     }
 
     @PostMapping("/tasks")
-    public void addTask(@RequestBody Task task) {
+    public String addTask(Task task) {
         long id = tasks.size() + 1L;
         tasks.add(new Task(id, task.getDescription(), task.getPriority()));
+        return "task";
     }
 
     @GetMapping("/register")
