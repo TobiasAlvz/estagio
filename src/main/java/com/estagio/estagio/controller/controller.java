@@ -11,4 +11,10 @@ public class controller {
         return "tasks";
 
     }
+
+    @GetMapping("/register")
+    public String register() {
+        return "register";
+
+    }
 }
