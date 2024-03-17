@@ -41,14 +41,11 @@
             </form>
 
             <div id="lista-tarefas" class="lista-tarefas">
-                <div th:each="task : ${tasks}" class="tarefa">
-                    <input type="checkbox" th:id="'task-' + ${task.id}">
-                    <label th:for="'task-' + ${task.id}"
-                        th:text="${task.description + ' - ' + task.priority}"></label>
-                    <button class="btn btn-secondary btn-editar"
-                        th:attr="data-id=${task.id}">Editar</button>
-                    <button class="btn btn-danger btn-excluir"
-                        th:attr="data-id=${task.id}">Excluir</button>
+                <div class="tarefa">
+                    <input type="checkbox">
+                    <label></label>
+                    <button class="btn btn-secondary btn-editar">Editar</button>
+                    <button class="btn btn-danger btn-excluir">Excluir</button>
                 </div>
             </div>
 

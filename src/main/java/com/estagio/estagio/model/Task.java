@@ -1,37 +1,52 @@
 package com.estagio.estagio.model;
 
 public class Task {
-    private long id;
-    private String description;
-    private String priority;
 
-    public Task(long id, String description, String priority) {
+    public Task(Long id, String name, String priority, boolean status) {
         this.id = id;
-        this.description = description;
+        this.name = name;
         this.priority = priority;
+        this.status = status;
     }
 
-    public long getId() {
+    public Task() {
+    }
+
+    private Long id;
+    private String name;
+    private String priority;
+    private boolean status;
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
-        this.id = id;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
+    public String getName() {
+        return name;
     }
 
     public String getPriority() {
-        return priority;
+        return this.priority;
     }
 
     public void setPriority(String priority) {
         this.priority = priority;
     }
+
+    public boolean getStatus() {
+        return this.status;
+    }
+
+    public void setStatus(boolean status) {
+        this.status = status;
+    }
+
 }

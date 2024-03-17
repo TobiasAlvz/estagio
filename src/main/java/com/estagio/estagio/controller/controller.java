@@ -2,8 +2,8 @@ package com.estagio.estagio.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.ArrayList;
@@ -16,60 +16,47 @@ public class controller {
 
     List<Task> tasks = new ArrayList<>();
 
-  
-
-    @PostMapping("/redirect")
-    public String redirectToPage(@RequestParam("action") String action) {
-        if ("Entrar".equals(action)) {
-            return "redirect:/tasks";
-        } else if ("Cadastro".equals(action)) {
-            return "redirect:/register";
-        } else {
-            return "redirect:/error.html";
-        }
+    @GetMapping("/create")
+    public ModelAndView home() {
+        ModelAndView mv = new ModelAndView("create");
+        mv.addObject("task", new Task());
+        return mv;
     }
 
-    @PostMapping("/index")
-    public String handleIndexPost(@RequestParam("nome") String nome,
-            @RequestParam("email") String email,
-            @RequestParam("senha") String senha,
-            @RequestParam("confirmarSenha") String confirmarSenha) {
-
-        return "redirect:/index";
-    }
-
-    @GetMapping("/index")
-    public String indexPage() {
-        return "index";
-    }
-
-    @GetMapping("/tasks")
-    public String tasksPage() {
-        return "tasks";
-    }
-
-    @PostMapping("/tasks")
+    @PostMapping("/create")
     public String create(Task task) {
+        System.out.println("Get ID" + task.getId());
 
-        Long id = tasks.size() + 1L;
-        tasks.add(new Task(id, task.getDescription(), task.getPriority()));
-        System.out.println("A tarefa é " + task.getDescription());
-        return "redirect:/tasks";
+        if (task.getId() != null) {
+            Task taskFind = tasks.stream().filter(taskItem -> task.getId().equals(taskItem.getId())).findFirst().get();
+            tasks.set(tasks.indexOf(taskFind), task);
+        } else {
+            Long id = tasks.size() + 1L;
+            tasks.add(new Task(id, task.getName(), task.getPriority(), false));
+        }
+
+        return "redirect:/list";
     }
 
     @GetMapping("/list")
-    public ModelAndView updateView() {
+    public ModelAndView list() {
         ModelAndView mv = new ModelAndView("list");
         mv.addObject("tasks", tasks);
         return mv;
     }
 
-    @PostMapping("/register")
-    public String registerPage() {
-        return "register";
+    @GetMapping("/remove/{id}")
+    public String remover(@PathVariable("id") Long id) {
+        Task taskFind = tasks.stream().filter(task -> id.equals(task.getId())).findFirst().get();
+        tasks.remove(taskFind);
+        return "/sucess";
     }
 
-    
-
+    @GetMapping("/edit/{id}")
+    public ModelAndView edit(@PathVariable("id") Long id) {
+        ModelAndView mv = new ModelAndView("create");
+        Task taskFind = tasks.stream().filter(task -> id.equals(task.getId())).findFirst().get();
+        mv.addObject("task", taskFind);
+        return mv;
+    }
 }
-

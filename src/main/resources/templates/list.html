@@ -15,7 +15,7 @@
 
         <title>Listagem de tarefa</title>
     </head>
-    <body>
+    <body class="bg-dark">
 
         <title>Listagem de tarefa</title>
     </head>
@@ -47,6 +47,7 @@
                     <th scope="col">Prioridade</th>
                     <th scope="col">#</th>
                     <th scope="col">#</th>
+                    <th scope="col">Concluída</th>
                 </tr>
             </thead>
             <tbody>
@@ -59,6 +60,10 @@
                     </td>
                     <td>
                         <a th:href="@{'/remove/'+${task.id}}">Remover</a>
+                    </td>
+                    <td>
+                        <input type="checkbox" name="status" id="status"
+                            th:checked="${{task.status ? true: false}}">
                     </td>
                 </tr>
 

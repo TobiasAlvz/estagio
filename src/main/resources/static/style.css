@@ -57,24 +57,22 @@ form .button-container {
   justify-content: center;
   align-items: center;
 }
-form #btn {
-  margin-right: 10px;
+form .button-container #btn {
   background-color: #ff6b6b;
   border-color: #ff6b6b;
   transition: background-color 0.3s, border-color 0.3s, transform 0.3s;
 }
-form #btn:hover {
+form .button-container #btn:hover {
   background-color: #ff8c8c;
   border-color: #ff8c8c;
   transform: scale(1);
 }
-form #btn-register {
-  margin-bottom: 30px;
+form .button-container #btn-register {
   background-color: #4ecdc4;
   border-color: #4ecdc4;
   transition: background-color 0.3s, border-color 0.3s, transform 0.3s;
 }
-form #btn-register:hover {
+form .button-container #btn-register:hover {
   background-color: #7fe5e5;
   border-color: #7fe5e5;
   transform: scale(1);
