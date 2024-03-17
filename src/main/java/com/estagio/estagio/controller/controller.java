@@ -4,7 +4,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import org.springframework.web.servlet.ModelAndView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,6 +15,8 @@ import com.estagio.estagio.model.Task;
 public class controller {
 
     List<Task> tasks = new ArrayList<>();
+
+  
 
     @PostMapping("/redirect")
     public String redirectToPage(@RequestParam("action") String action) {
@@ -46,9 +48,28 @@ public class controller {
         return "tasks";
     }
 
+    @PostMapping("/tasks")
+    public String create(Task task) {
+
+        Long id = tasks.size() + 1L;
+        tasks.add(new Task(id, task.getDescription(), task.getPriority()));
+        System.out.println("A tarefa é " + task.getDescription());
+        return "redirect:/tasks";
+    }
+
+    @GetMapping("/list")
+    public ModelAndView updateView() {
+        ModelAndView mv = new ModelAndView("list");
+        mv.addObject("tasks", tasks);
+        return mv;
+    }
+
     @PostMapping("/register")
     public String registerPage() {
         return "register";
     }
 
+    
+
 }
+

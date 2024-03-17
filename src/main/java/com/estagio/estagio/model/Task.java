@@ -5,14 +5,12 @@ public class Task {
     private String description;
     private String priority;
 
-    
     public Task(long id, String description, String priority) {
         this.id = id;
         this.description = description;
         this.priority = priority;
     }
 
-   
     public long getId() {
         return id;
     }
