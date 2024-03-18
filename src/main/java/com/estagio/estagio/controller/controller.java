@@ -15,6 +15,27 @@ import com.estagio.estagio.model.Task;
 public class controller {
 
     List<Task> tasks = new ArrayList<>();
+    @PostMapping("/index")
+    public String index() {
+       
+        return "redirect:/index"; 
+    }
+
+    @GetMapping("/index")
+    public String indexPage() {
+        return "index";
+    }
+
+    @PostMapping("/register")
+    public String register() {
+       
+        return "redirect:/register"; 
+    }
+
+    @GetMapping("/register")
+    public String registerPage() {
+        return "register";
+    }
 
     @GetMapping("/create")
     public ModelAndView home() {

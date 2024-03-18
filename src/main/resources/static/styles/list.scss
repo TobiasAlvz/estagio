@@ -1,0 +1,35 @@
+.navbar {
+  background-color: #f8f9fa;
+  &-nav .nav-link {
+    color: #343a40;
+    &.active {
+      font-weight: 700;
+    }
+  }
+}
+
+
+.table {
+  background-color: #f8f9fa;
+  th {
+    background-color: $primary-color;
+    color: #fff;
+  }
+  td {
+    background-color: #fff;
+    a {
+      color: $primary-color;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+  input[type="checkbox"] {
+    margin-left: auto;
+  }
+}
+
+label {
+  padding: 10px;
+  color: #f8f9fa;
+}

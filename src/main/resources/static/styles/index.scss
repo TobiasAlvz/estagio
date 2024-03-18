@@ -55,7 +55,7 @@ form {
     justify-content: center;
     align-items: center;
     #btn {
-     
+     margin: 10px;
       background-color: $primary-color;
       border-color: $primary-color;
       transition: background-color 0.3s, border-color 0.3s, transform 0.3s;
@@ -68,7 +68,8 @@ form {
     }
 
     #btn-register {
-    
+      
+    margin-bottom: 30px;
       background-color: $secondary-color;
       border-color: $secondary-color;
       transition: background-color 0.3s, border-color 0.3s, transform 0.3s;

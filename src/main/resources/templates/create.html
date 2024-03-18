@@ -11,12 +11,12 @@
             integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
             crossorigin="anonymous">
 
-        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" th:href="@{/style.css}" />
 
         <title>Cadastro de tarefa</title>
     </head>
     <body class="bg-dark">
-     
+
         <nav class="navbar navbar-expand-lg bg-light">
             <div class="container-fluid">
 
@@ -40,7 +40,8 @@
         <form method="POST" action="/create" th:object="${task}">
             <input type="hidden" th:value="${task.id}" name="id" />
             <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label">Nome da
+                <label id="form-label" for="exampleInputEmail1"
+                    class="form-label">Nome da
                     tarefa</label>
                 <input type="text" class="form-control" name="name"
                     th:value="${task.name}">
