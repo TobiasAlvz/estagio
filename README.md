@@ -10,6 +10,11 @@ Java Development Kit (JDK 21): É necessário ter o JDK instalado na sua máquin
 Apache Maven: O Maven é uma ferramenta de automação de compilação e gerenciamento de dependências para projetos Java.
 
 spring-boot-starter-thymeleaf: Dependência para integrar o Thymeleaf com o Spring Boot.
+
 spring-boot-starter-web: Dependência para iniciar uma aplicação web Spring Boot.
+
 spring-boot-devtools: Dependência para facilitar o desenvolvimento, como reinicialização automática do servidor.
+
 spring-boot-starter-test: Dependência para testes automatizados.
+
+Além do projeto em thymeleaf, o tasks.html também contem um projeto similar rodando em Js, que pode ser utlizado ataves do liveserver.
