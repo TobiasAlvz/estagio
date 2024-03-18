@@ -17,4 +17,4 @@ spring-boot-devtools: Dependência para facilitar o desenvolvimento, como reinic
 
 spring-boot-starter-test: Dependência para testes automatizados.
 
-Além do projeto em thymeleaf, o tasks.html também contem um projeto similar rodando em Js, que pode ser utlizado ataves do liveserver.
+Além do projeto em thymeleaf, o tasks.html também contem um projeto similar rodando em Js, que pode ser utilizado através do liveserver.
