@@ -36,8 +36,7 @@
                 </div>
             </div>
         </nav>
-        <label for="priorityFilter">Filtrar por
-            Prioridade:</label>
+        <label for="priorityFilter">Filtrar por Prioridade:</label>
         <select id="priorityFilter" onchange="filterTasks()">
             <option value="all">Todas as Prioridades</option>
             <option value="baixa">Baixa</option>
@@ -75,22 +74,20 @@
             </tbody>
         </table>
         <script>
-       
-            function filterTasks() {
-                var priority = document.getElementById("priorityFilter").value;
-                var rows = document.querySelectorAll("tbody tr");
-                
-                rows.forEach(function(row) {
-                    var priorityCell = row.querySelector("td:nth-child(3)");
-                    var priorityText = priorityCell.textContent.trim().toLowerCase();
-                    
-                    if (priority === "all" || priorityText === priority) {
-                        row.style.display = "";
-                    } else {
-                        row.style.display = "none";
-                    }
-                });
-            }
+  function filterTasks() {
+    var priority = document.getElementById("priorityFilter").value;
+    var rows = document.querySelectorAll("tbody tr");
+    
+    rows.forEach(function(row) {
+        var priorityCell = row.querySelector("td:nth-child(3)").textContent.trim().toLowerCase();
+        
+        if (priority === "all" || priorityCell === priority.toLowerCase() || (priority === "media" && priorityCell === "média")) {
+            row.style.display = "";
+        } else {
+            row.style.display = "none";
+        }
+    }); 
+}  
         </script>
     </body>
 </html>
